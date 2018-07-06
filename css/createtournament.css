@@ -1,0 +1,22 @@
+.jumbotron{
+    background: #a3c2c2;
+    color:floralwhite;
+}
+
+
+.navbar-inverse {
+     background: #666633;
+}
+
+
+div {
+  font-size: 3vmin;
+}
+
+label{
+  font-size: 3vmin;
+}
+
+.form-control{
+font-size:14px
+}
