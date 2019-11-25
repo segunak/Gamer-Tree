@@ -6,6 +6,6 @@
 ## Developers: 
 - Ian Fitzpatrick 
 - Keith Djouba 
-- Akintunde (Segun) Akinyemi 
+- Segun Akinyemi 
 - Zoe Scheong 
 - Jacob Yanez 
