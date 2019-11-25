@@ -3,7 +3,7 @@
 *Forgot password form
 *version 1.0
 *Author Keith Djouba
-*modified by Tunde Akinyemi
+*modified by Segun Akinyemi
 *
 * This form would send an email to user if they email address matche the
 *in the database
