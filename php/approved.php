@@ -1,61 +1,43 @@
 <?php
-/*
-Author: Zhuocheng Shang, Marlon Djouba
-Description: This file if set to update tournament status as 'Approved' and send email to the creator 
-*/
 
-    //connect to database
-require_once("DBController.php");
+//connect to the database
+require_once "DBController.php";
 $db_handle = new DBController();
 
-    //get current tournament ID
+//get the current tournament ID
 $currentTMid = $_POST['get_id'];
 
-    //get the eamil address of the creator
+//get the eamil address of the creator
 $query = "SELECT Creator FROM Tournament WHERE TournamentID = '" . $currentTMid . "'";
 $email = $db_handle->getEmail($query);
 
-    //if there exist a creator
-if(!empty($email)) {
+if (!empty($email)) {
 
-        //update the status of tounrament, set approved to '1'
+    //update the status of tournament, set approved to '1'
     $query1 = "UPDATE Tournament set Approved = '1' WHERE TournamentID='" . $currentTMid . "'";
     $result = $db_handle->updateQuery($query1);
 
-        //get creator ID
+    //get creator ID
     $Check_UserID = "SELECT UserID FROM User WHERE email = '$email'";
     $getUserID = $db_handle->getUserID($Check_UserID);
 
-        //insert tournament ID into UserTournaments Table associated with creator id
+    //insert tournament ID into UserTournaments Table associated with creator id
     $query4 = "INSERT INTO UserTournaments (TournamentID, UserID) VALUES
                 ('$currentTMid', '$getUserID')";
     $insideTable = $db_handle->insertQuery($query4);
+    $toEmail = $email; //the email address of tournament creator
+    $subject = "Tournament status"; //email subject
+    $content = "The Tournament is approved. <a href ='" . $actual_link . "'> </a>"; 
+    $mailHeaders = "From: noreply@tourneyregistration.com\r\n";
 
-        //prepare the email information
-        
-           
-        /*this link can be sent within the email, and click this link will run the code 
-             in this file, which will approve this tournament. Can be used to test during developing.
-        */
-        //$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"."approved.php?TournamentID=" . $currentTMid."&email=".$email;
-        $toEmail = $email; //the email address of tournament creator
-        $subject = "Tournament status"; //email subject
-        $content = "Tounrmanet is approved. <a href ='" . $actual_link ."'> </a>"; //email content
-        $mailHeaders = "From: noreply@tourneyregistration.com\r\n"; 
-
-            //if sucessfuly send the email
-        if (mail($toEmail, $subject, $content, $mailHeaders)) {
-            echo "<script> alert('The tounrmanet is approved.');
+    //if the email sends successfully 
+    if (mail($toEmail, $subject, $content, $mailHeaders)) {
+        echo "<script> alert('The tournament has been approved.');
                   window.location.href='../index.php'; </script>";
-            exit;
-         }
-        unset($_POST);
+        exit;
     }
-
-    else
-     {
-            //error message
-        $message = "Problem in account activation.";
-    }
-
-?>
+    unset($_POST);
+} else {
+    //error message
+    $message = "Problem in account activation.";
+}

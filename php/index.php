@@ -138,7 +138,7 @@ if ($result->num_rows > 0) {
 
             $id_number = 1;
 
-                /*** ********* Amin Home Page ******** */
+                /*** ********* Admin Home Page ******** */
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
                 $string = $row["StartDate"];

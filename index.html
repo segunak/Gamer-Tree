@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <title> Login </title>
@@ -29,9 +30,9 @@
         </div>
         <div class="row justify-content-center">
             <div id="page-title" class="col text-center">
-                <hr/>
+                <hr />
                 <h1><em> Gamer Tree</em> Tournament Manager</h1>
-                <hr/>
+                <hr />
             </div>
         </div>
         <div id="loginbox" class="row justify-content-center">
@@ -42,19 +43,24 @@
                             <div class="col-lg-12">
 
                                 <!-- *************************** Login Form ***************************************************** -->
-                                <form id="login-form" action="php/login.php" method="post" role="form" style="display: block;">
+                                <form id="login-form" action="limited-site.html" method="post" role="form"
+                                    style="display: block;">
                                     <h2>LOGIN</h2>
                                     <div class="form-group">
-                                        <input type="text" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+                                        <input type="text" name="email" id="email" tabindex="1" class="form-control"
+                                            placeholder="Email Address" value="" required>
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                                        <input type="password" name="password" id="password" tabindex="2"
+                                            class="form-control" placeholder="Password" required>
                                     </div>
                                     <div class="form-group">
-                                        <a class="nav-item" href="#" data-toggle="modal" data-target="#forgotmodal" data-whatever="@mdo">Forgot Username/Password</a>
+                                        <a class="nav-item" href="#" data-toggle="modal" data-target="#forgotmodal"
+                                            data-whatever="@mdo">Forgot Username/Password</a>
                                     </div>
                                     <div class="col-xs-6 form-group">
-                                        <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
+                                        <input type="submit" name="login-submit" id="login-submit" tabindex="4"
+                                            class="form-control btn btn-login" value="Log In">
                                     </div>
                                 </form>
                                 <!-- ********************************************************************************************************************-->
@@ -62,32 +68,44 @@
 
                                 <!-- *************************** Register Form ***************************************************** -->
 
-                                <form name="myForm" id="register-form" action="php/register.php" method="post" role="form" onsubmit="return validatemyForm();" style="display: none;">
+                                <form name="myForm" id="register-form" action="limited-site.html" method="post"
+                                    role="form" onsubmit="return validatemyForm();" style="display: none;">
                                     <h2>REGISTER</h2>
 
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col">
-                                                <input type="text" name="firstName" id="firstName" tabindex="1" required="required" class="form-control" placeholder="First Name" value="">
+                                                <input type="text" name="firstName" id="firstName" tabindex="1"
+                                                    required="required" class="form-control" placeholder="First Name"
+                                                    value="">
                                             </div>
                                             <div class="col">
-                                                <input type="text" name="lastName" id="lastName" tabindex="1" required="required" class="form-control" placeholder="Last Name" value="">
+                                                <input type="text" name="lastName" id="lastName" tabindex="1"
+                                                    required="required" class="form-control" placeholder="Last Name"
+                                                    value="">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" name="newEmail" id="newEmail" tabindex="1" required="required" class="form-control" placeholder="Lindenwood Email Address" value="">
+                                        <input type="email" name="newEmail" id="newEmail" tabindex="1"
+                                            required="required" class="form-control"
+                                            placeholder="Lindenwood Email Address" value="">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" name="newPassword" id="newPassword" required="required" tabindex="2" class="form-control" placeholder="New Password">
+                                        <input type="password" name="newPassword" id="newPassword" required="required"
+                                            tabindex="2" class="form-control" placeholder="New Password">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" name="confirm_password" id="confirm-password" tabindex="2" required="required" class="form-control" oninput="checkPasswords(this)" placeholder="Confirm Password">
+                                        <input type="password" name="confirm_password" id="confirm-password"
+                                            tabindex="2" required="required" class="form-control"
+                                            oninput="checkPasswords(this)" placeholder="Confirm Password">
                                     </div>
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-sm-6 col-sm-offset-3">
-                                                <input type="submit" name="register-user" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+                                                <input type="submit" name="register-user" id="register-submit"
+                                                    tabindex="4" class="form-control btn btn-register"
+                                                    value="Register Now">
                                             </div>
                                         </div>
                                     </div>
@@ -119,21 +137,24 @@
 
     <!--Forgot Password Modal-->
     <!--Begin Modal-->
-    <div class="modal fade" id="forgotmodal" tabindex="-1" role="dialog" aria-labelledby="forgotmodal" aria-hidden="true">
+    <div class="modal fade" id="forgotmodal" tabindex="-1" role="dialog" aria-labelledby="forgotmodal"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header light-blue darken-3 white-text">
                     <h4 class="title col-lg" id="forgot">Enter the email address associated with your account</h4>
-                    <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close waves-effect waves-light" data-dismiss="modal"
+                        aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body mb-0 mx-3">
-                    <form action="php/forgot_password.php" method="POST">
+                    <form action="index.html" method="POST">
                         <div class="md-form form-sm row">
                             <label for="tmname" class="col-sm-4 control-label right-align">Enter email:</label>
                             <div class="col-sm-8">
-                                <input type="email" class="form-control" id="emailForm" name="emailForm" placeholder="email" required>
+                                <input type="email" class="form-control" id="emailForm" name="emailForm"
+                                    placeholder="email" required>
                             </div>
                             <br />
                         </div>
@@ -147,7 +168,7 @@
             </div>
         </div>
     </div>
-<!--End Modal-->
+    <!--End Modal-->
 </body>
 
 <footer id="footer" class="footer navbar-fixed-bottom">

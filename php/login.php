@@ -1,23 +1,13 @@
 <?php
 
-// This session will store vital information for the entirety of the project.
-// Refer to this file to know what session variables are available to us.
 session_start();
 
-/*
-  Available Session Variables.  Remember to call session_start(); to use these.
-  $_SESSION["servername"]
-  $_SESSION["databasename"]
-  $_SESSION["password"]
-  $_SESSION["logged_in"]
-*/
-
-$servername = "gamertree.coeozr7b8ydf.us-east-1.rds.amazonaws.com";
-$databaseName = "rocklee";
-$databasePassword = "rockleelions77";
+$servername = "***********************";
+$databaseName = "***********************";
+$databasePassword = "***********************";
 
 $_SESSION["servername"] = $servername;
-$_SESSION["databasename"] = $databaseName ;
+$_SESSION["databasename"] = $databaseName;
 $_SESSION["password"] = $databasePassword;
 $_SESSION["logged_in"] = true;
 
@@ -68,7 +58,7 @@ if (!$conn) {
                     //Redirect.
                     header('Location: index.php');
                 } else {
-                   echo "<script> alert('The password you entered does not match the associated user account. Please try again.');
+                    echo "<script> alert('The password you entered does not match the associated user account. Please try again.');
                  window.location.href='../index.html'; </script>";
 
                 }
@@ -76,5 +66,3 @@ if (!$conn) {
         }
     }
 }
-
-?>

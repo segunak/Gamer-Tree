@@ -1,27 +1,23 @@
 <?php
 /*
-Author: Zhuocheng Shang
-Description: This file is set to delete a tournament which is already approved
-*/
+Deletes an existing tournament.
+ */
 
-    //connect to database
-require_once("DBController.php");
+//connect to the database
+require_once "DBController.php";
 $db_handle = new DBController();
 
-        //get current tournament ID
-    $tmID = $_POST['get_id'];
-        //delete tournament from database
-    $result = $db_handle->deleteQuery( "DELETE  FROM Tournament WHERE TournamentID = '$tmID' ");
-    $result1 = $db_handle->deleteQuery( "DELETE  FROM tbl_uploads WHERE TournamentId = '$tmID' ");
+//get the current tournament ID
+$tmID = $_POST['get_id'];
 
-    if($result){
-            //alert with success message
-        echo "<script> alert('you successfully delete a tournament.') </script>";
+//delete it
+$result = $db_handle->deleteQuery("DELETE  FROM Tournament WHERE TournamentID = '$tmID' ");
+$result1 = $db_handle->deleteQuery("DELETE  FROM tbl_uploads WHERE TournamentId = '$tmID' ");
 
-   }else
-   {
-    echo "<script> alert('Fail to delete.') </script>";
-    }
+if ($result) {
+    //alert with success message
+    echo "<script> alert('Tournament deleted successfully.') </script>";
 
-
-?>
+} else {
+    echo "<script> alert('Error - Failed to delete the tournament.') </script>";
+}

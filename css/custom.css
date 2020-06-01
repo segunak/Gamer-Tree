@@ -1,75 +1,81 @@
-
-
-.top-buffer {margin-top:10px;}
+.top-buffer {
+    margin-top: 10px;
+}
 
 /* Dates */
-.agenda .agenda-date { width: 170px; }
-.agenda .agenda-date .dayofmonth {
-  width: 40px;
-  font-size: 36px;
-  line-height: 36px;
-  float: left;
-  text-align: right;
-  margin-right: 10px;
+.agenda .agenda-date {
+    width: 170px;
 }
+
+.agenda .agenda-date .dayofmonth {
+    width: 40px;
+    font-size: 36px;
+    line-height: 36px;
+    float: left;
+    text-align: right;
+    margin-right: 10px;
+}
+
 .agenda .agenda-date .shortdate {
-  font-size: 0.75em;
+    font-size: 0.75em;
 }
 
 nav {
-  background-color: black;
+    background-color: black;
 }
+
 
 /* Times */
-.agenda .agenda-time { width: 140px; }
 
-#lu-title-text {
-  text-decoration: none;
-  font-family: 'antonioregular';
-  font-size: 20px;
-  position: relative;
-  color: white;
-  text-transform: uppercase;
+.agenda .agenda-time {
+    width: 140px;
 }
 
+#lu-title-text {
+    text-decoration: none;
+    font-family: 'antonioregular';
+    font-size: 20px;
+    position: relative;
+    color: white;
+    text-transform: uppercase;
+}
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  /* Margin bottom by footer height */
+    /* Margin bottom by footer height */
     margin-bottom: 60px;
     font-family: 'Titillium Web', sans-serif;
     font-weight: 700;
     font-size: 14px;
-
 }
 
 #site-title {
-  padding-left: 50%;
-   font-family: 'antonioregular';
-  font-size: 20px;
-  position: relative;
-  color: white;
-  text-transform: uppercase;
+    padding-left: 50%;
+    font-family: 'antonioregular';
+    font-size: 20px;
+    position: relative;
+    color: white;
+    text-transform: uppercase;
 }
 
 @media screen and (max-width: 500px) {
-  #footer {
-      display: none;
-  }
+    #footer {
+        display: none;
+    }
 }
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 40px;
-  background-color: black;
-  line-height: 40px;
-  font-size: .8rem;
-  text-align: center;
 
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background-color: black;
+    line-height: 40px;
+    font-size: .8rem;
+    text-align: center;
 }
