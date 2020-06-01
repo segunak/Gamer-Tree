@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="./images/Logo.svg">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="./css/custom.css" rel="stylesheet">
+    <link href="./css/glyphicons.css" rel="stylesheet">
+    <link href="./css/tempusdominus-bootstrap-4.min.css" rel="stylesheet">
+    <link href="./css/bracketgenerator.css" rel="stylesheet">
+    <link href="./css/_card.scss" rel="stylesheet">
+
+    <!--  JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <!-- <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script> -->
+    <script src="http://underscorejs.org/underscore-min.js"></script>
+    <script src="./js/createtournament.js"></script>
+    <script src="./js/moment.min.js"></script>
+    <script src="./js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <title>Gamer Tree</title>
+
+    <nav class="navbar navbar-expand-lg navbar-dark" style="color: black;">
+        <a class="navbar-brand" id="lu-title-text" href="limited-site.html">Lindenwood</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="#" data-toggle="modal" data-target="#modalEnrollForm">Join
+                    Tournament</a>
+                <a class="nav-item nav-link" href="#" data-toggle="modal" data-target="#createTournament">Create
+                    Tournament</a>
+                <a class="nav-item nav-link" href="#" data-toggle="modal" data-target="#modalContactForm">Support</a>
+                <a class="nav-item nav-link" href="index.html">Logout</a>
+            </div>
+        </div>
+    </nav>
+    <ul class="nav sticky-top nav-tabs nav-fill navbar-dark" id="myTab" role="tablist"
+        style="background-color: #b6a16b">
+        <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                aria-selected="true" style="color: black;">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="agenda-tab" data-toggle="tab" href="#agenda" role="tab" aria-controls="agenda"
+                aria-selected="false" style="color: black;">Agenda</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="records-tab" data-toggle="tab" href="#records" role="tab" aria-controls="records"
+                aria-selected="false" style="color: black;">Records</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+                aria-selected="false" style="color: black;">Profile</a>
+        </li>
+    </ul>
+    <br />
+    <p style="text-align: center; color: red; font-size: 12px; font-weight: bolder;">
+        Notice: You are accessing a severely limited version of the Gamer Tree Tournament Management web application.
+        The full application is <br /> available for use by Lindenwood University students & staff only. This version 
+        exists for stylistic capability demonstration purposes only.
+    </p>
+</head>
+
+<body>
+    <div class="tab-content text-center" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <h3>HOME</h3>
+            <div class="card top-buffer mx-auto" style="width: 55vmax;">
+                <div class="card-body">
+                    <h5 class="card-title"> A Game of Thrones </h5>
+                    <h6 class="card-subtitle mb-2 text-muted">
+                        <script>
+                            let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                            let dateObj = new Date();
+                            let day = dateObj.getDate();
+                            let month = dateObj.getMonth() + 1;
+                            let year = dateObj.getFullYear();
+                            let date = month + "/" + day + "/" + year;
+                            document.write(date); 
+                        </script>
+                    </h6>
+                    <img src="./uploads/cool.jpg" class="img-thumbnail" height="60%" width="50%" style="border:none">
+                    <p id="desc1" class="card-text" style="text-align: left;">
+                        George R.R. Martin's best-selling book series "A Song of Ice and Fire" has inspired an entire
+                        generation of medieval fantasy
+                        enthusiasts into action, with many of those fans residing on the campus of Lindenwood
+                        University. This tournament will test the GOT
+                        knowledge of students in a series of video, trivia and board games aimed at discovering who is
+                        truly the biggest GOT fan on
+                        campus. The winner of this tournament will receive a $100 Amazon gift card and a GOT themed
+                        shawl.
+                    </p>
+                    <button type="button" class="btn btn-primary" style="margin-left: 10px; margin-right: 10px;"
+                        data-toggle="modal" data-target="#deleteModal"> DELETE </button>
+                    <button type="button" class="btn btn-primary" style="margin-left: 10px; margin-right: 10px;"
+                        data-toggle="modal" data-target="#updateModal"> UPDATE </button>
+
+                </div>
+            </div>
+
+            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModal"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header" style="text-align: center;">
+                            <h5 class="modal-title col-md-12" id="deleteModal">Delete "A Game of Thrones" </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form method="POST">
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert"
+                                    style="padding-right: 1%;">
+                                    <p class="col-lg-12">
+                                        <strong> YOU ARE ABOUT TO DELETE AN ENTIRE TOURNAMENT!</strong>
+                                        <br /><br /> Please be certain this is the course of action you wish to take
+                                        before you delete this tournament.
+                                    </p>
+                                </div>
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                            <button type="button" class="btn btn-secondary"
+                                style="margin-left: 10px; margin-right: 10px;" data-dismiss="modal">Close</button>
+                            <button type="submit" value="$tm_id" onclick="" class="btn btn-primary"
+                                style="margin-left: 10px; margin-right: 10px;">Save changes</button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateTournament"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+
+                    <div class="modal-content" style="width: 700px;">
+
+                        <div class="modal-header light-blue darken-3 white-text">
+                            <h4 class="title col-sm-12" id="updateTournament">Update Tournament</h4>
+                            <button type="button" class="close waves-effect waves-light" data-dismiss="modal"
+                                aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <div class="modal-body mb-0 mx-3">
+                            <form method="POST">
+                                <div class="md-form form-sm row">
+                                    <label for="tmname" class="col-sm-4 control-label right-align"
+                                        style="padding-right:10px;">Tournament Name</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="tmnames" value="A Game of Thrones"
+                                            required>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="md-form form-sm row">
+                                    <label for="description"
+                                        class="col-sm-4 control-label right-align">Description</label>
+                                    <div class="col-sm-8">
+                                        <textarea class="form-control" id="desc2" rows="12"
+                                            value="">George R.R. Martin's best-selling book series "A Song of Ice and Fire" has inspired an entire generation of medieval fantasy enthusiasts into action, with many of those fans residing on the campus of Lindenwood University. This tournament will test the GOT knowledge of students in a series of video, trivia and board games aimed at discovering who is truly the biggest GOT fan on campus. The winner of this tournament will receive a $100 Amazon gift card and a GOT themed shawl. </textarea>
+                                    </div>
+                                    <span class="offset-md-8" id="spnCharLeft"></span>
+                                    <br />
+                                </div>
+
+                                <div class="text-center mt-1-half">
+                                    <br />
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                        style="margin-left: 10px; margin-right: 10px;">Cancel</button>
+
+                                    <button type="submit" class="btn btn-secondary" id="submit$id_number" value="$tm_id"
+                                        onclick="updateTM(this.value);"
+                                        style="margin-left: 10px; margin-right: 10px;">Create</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Agenda-->
+        </div>
+
+        <div class="tab-pane fade" id="agenda" role="tabpanel" aria-labelledby="agenda-tab">
+            <h3>UPCOMING MATCHES</h3>
+            <div class="container">
+                <p class="lead">Below are your upcoming matches!</p>
+                <hr />
+                <div class="agenda">
+                    <div class="table-responsive">
+                        <table class="table table-condensed table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                    <th>Event</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="agenda-date" class="active" rowspan="1">
+                                        <div class="dayofmonth">
+                                            <script>document.write(day) </script>
+                                        </div>
+                                        <div class="dayofweek">
+                                            <script>document.write(days[dateObj.getDay()]) </script>
+                                        </div>
+                                        <div class="shortdate text-muted">
+                                            <script>document.write(dateObj.toLocaleDateString()) </script>
+                                        </div>
+                                    </td>
+                                    <td class="agenda-time">
+                                        <script>document.write(dateObj.toLocaleTimeString()) </script>
+                                    </td>
+                                    <td class="agenda-events">
+                                        <div class="agenda-event"> The Assault on Dreadfort
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="agenda-date" class="active" rowspan="1">
+                                        <div class="dayofmonth">
+                                            <script>document.write(day) </script>
+                                        </div>
+                                        <div class="dayofweek">
+                                            <script>document.write(days[dateObj.getDay()]) </script>
+                                        </div>
+                                        <div class="shortdate text-muted">
+                                            <script>document.write(dateObj.toLocaleDateString()) </script>
+                                        </div>
+                                    </td>
+                                    <td class="agenda-time">
+                                        <script>document.write(dateObj.toLocaleTimeString()) </script>
+                                    </td>
+                                    <td class="agenda-events">
+                                        <div class="agenda-event"> The Battle of Blackwater Bay
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="agenda-date" class="active" rowspan="1">
+                                        <div class="dayofmonth">
+                                            <script>document.write(day) </script>
+                                        </div>
+                                        <div class="dayofweek">
+                                            <script>document.write(days[dateObj.getDay()]) </script>
+                                        </div>
+                                        <div class="shortdate text-muted">
+                                            <script>document.write(dateObj.toLocaleDateString()) </script>
+                                        </div>
+                                    </td>
+                                    <td class="agenda-time">
+                                        <script>document.write(dateObj.toLocaleTimeString()) </script>
+                                    </td>
+                                    <td class="agenda-events">
+                                        <div class="agenda-event"> The Battle of Winterfell
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="agenda-date" class="active" rowspan="1">
+                                        <div class="dayofmonth">
+                                            <script>document.write(day) </script>
+                                        </div>
+                                        <div class="dayofweek">
+                                            <script>document.write(days[dateObj.getDay()]) </script>
+                                        </div>
+                                        <div class="shortdate text-muted">
+                                            <script>document.write(dateObj.toLocaleDateString()) </script>
+                                        </div>
+                                    </td>
+                                    <td class="agenda-time">
+                                        <script>document.write(dateObj.toLocaleTimeString()) </script>
+                                    </td>
+                                    <td class="agenda-events">
+                                        <div class="agenda-event"> The Siege of Mereen
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="agenda-date" class="active" rowspan="1">
+                                        <div class="dayofmonth">
+                                            <script>document.write(day) </script>
+                                        </div>
+                                        <div class="dayofweek">
+                                            <script>document.write(days[dateObj.getDay()]) </script>
+                                        </div>
+                                        <div class="shortdate text-muted">
+                                            <script>document.write(dateObj.toLocaleDateString()) </script>
+                                        </div>
+                                    </td>
+                                    <td class="agenda-time">
+                                        <script>document.write(dateObj.toLocaleTimeString()) </script>
+                                    </td>
+                                    <td class="agenda-events">
+                                        <div class="agenda-event"> The Battle of the Trident
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="agenda-date" class="active" rowspan="1">
+                                        <div class="dayofmonth">
+                                            <script>document.write(day) </script>
+                                        </div>
+                                        <div class="dayofweek">
+                                            <script>document.write(days[dateObj.getDay()]) </script>
+                                        </div>
+                                        <div class="shortdate text-muted">
+                                            <script>document.write(dateObj.toLocaleDateString()) </script>
+                                        </div>
+                                    </td>
+                                    <td class="agenda-time">
+                                        <script>document.write(dateObj.toLocaleTimeString()) </script>
+                                    </td>
+                                    <td class="agenda-events">
+                                        <div class="agenda-event"> The War of the Five Kings
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- End Agenda -->
+        <!-- Record Page -->
+        <div class="tab-pane fade" id="records" role="tabpanel" aria-labelledby="records-tab">
+            <h3>RECORDS</h3>
+            <p>Below are records for tournaments you participated in.</p>
+            <div class="card top-buffer mx-auto" style="width: 55vmax;">
+                <div class="card-body">
+                    <form action="limited-site.html" method="POST">
+
+                        <div class="card-title card-header"> The Greyjoy Rebellion </div> <br/>
+                        <img class="card-img-top" src="./images/bracket.svg" alt="Card image cap">
+                        <h6 class="card-subtitle mb-2 text-muted"> 3/23/10 </h6>
+                        <p class="card-text">
+                            Greyjoy's Rebellion or the Greyjoy Rebellion was an attempt at secession by Balon Greyjoy
+                            against the Iron Throne in 289 AC, nine years before the beginning of A Game of Thrones.
+                        </p>
+                        <input name="GameID" type="hidden" value="$touramentID">.
+                        <input type="submit" class="btn btn-secondary" value="Update" name="GameRecord\' style="
+                            margin-left: 10px; margin-right: 10px;" />
+                        <br /><br />
+
+                        <div class="card-title card-header"> The Battle of the Trident</div><br/>
+                        <img class="card-img-top" src="./images/bracket.svg" alt="Card image cap">
+                        <h6 class="card-subtitle mb-2 text-muted"> 8/23/05 </h6>
+                        <p class="card-text">
+                            The Battle of the Trident was the battle that ultimately determined the outcome of Robert's
+                            Rebellion. The battle was fought between rebel and royal troops at the Trident, across what would
+                            thereafter be known as the ruby ford. It ended in a victory for the rebels.
+                        </p>
+                        <input name="GameID" type="hidden" value="$touramentID">.
+                        <input type="submit" class="btn btn-secondary" value="Update" name="GameRecord\' style="
+                            margin-left: 10px; margin-right: 10px;" />
+                        <br /><br />
+
+                        <div class="card-title card-header"> Robert's Rebellion</div><br/>
+                        <img class="card-img-top" src="./images/bracket.svg" alt="Card image cap">
+                        <h6 class="card-subtitle mb-2 text-muted"> 4/12/00 </h6>
+                        <p class="card-text">
+                            Robert's Rebellion, also known as the War of the Usurper, was a rebellion against House
+                            Targaryen, primarily instigated by Eddard Stark, Jon Arryn, and Robert Baratheon, for whom it is named.
+                            It lasted "close to a year" and resulted in the end of the Targaryen dynasty in the Seven Kingdoms and
+                            the beginning of Robert Baratheon's reign.
+                        </p>
+                        <input name="GameID" type="hidden" value="$touramentID">.
+                        <input type="submit" class="btn btn-secondary" value="Update" name="GameRecord\' style="
+                            margin-left: 10px; margin-right: 10px;" />
+                        <br /><br />
+
+                        <div class="card-title card-header"> The Battle at the Mummer's Ford  </div><br/>
+                        <img class="card-img-top" src="./images/bracket.svg" alt="Card image cap">
+                        <h6 class="card-subtitle mb-2 text-muted"> 9/16/95 </h6>
+                        <p class="card-text">
+                            The Battle at the Mummer's Ford was a military engagement in the first days of the War of
+                            the Five Kings. It takes place when the forces of House Lannister led by Ser Gregor Clegane 
+                            come into conflict with the Iron Throne detachment sent by Hand of the King Eddard Stark, 
+                            under the leadership of Lord Beric Dondarrion along with Thoros of Myr, to execute Ser Gregor.
+                        </p>
+                        <input name="GameID" type="hidden" value="$touramentID">.
+                        <input type="submit" class="btn btn-secondary" value="Update" name="GameRecord\' style="
+                            margin-left: 10px; margin-right: 10px;" />
+                        <br /><br />
+
+                        <div class="card-title card-header"> The Battle of the Whispering Wood </div><br/>
+                        <img class="card-img-top" src="./images/bracket.svg" alt="Card image cap">
+                        <h6 class="card-subtitle mb-2 text-muted"> 3/23/90 </h6>
+                        <p class="card-text">
+                            The Battle of the Whispering Wood was an early major battle in the War of the Five Kings,
+                            which erupted after King Robert Baratheon's death.
+                        </p>
+
+                        <input name="GameID" type="hidden" value="$touramentID">.
+                        <input type="submit" class="btn btn-secondary" value="Update" name="GameRecord\' style="
+                            margin-left: 10px; margin-right: 10px;" />
+                        <br /><br />
+                    </form>
+
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <h3>Profile</h3>
+            <div class="page-wrapper">
+                <!-- ============================================================== -->
+                <!-- Container fluid  -->
+                <!-- ============================================================== -->
+                <div class="container-fluid">
+                    <!-- ============================================================== -->
+
+                    <!-- ============================================================== -->
+                    <!-- Start Page Content -->
+                    <!-- ============================================================== -->
+                    <!-- Row -->
+                    <div class="row">
+                        <!-- Column -->
+                        <div class="col-lg-4 col-xlg-3 col-md-5">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title m-t-10"> Arya Stark </h4>
+                                    <h6 class="card-subtitle"> aryastark@lindenwood.edu </h6>
+                                    <div class="row text-center justify-content-md-center">
+                                    </div>
+                                    </center>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Column -->
+                        <!-- Column -->
+                        <div class="col-lg-8 col-xlg-9 col-md-7">
+                            <div class="card">
+                                <div class="card-body">
+                                    <form class="form-horizontal form-material">
+                                        <div class="form-group">
+                                            <label class="col-md-12">First Name</label>
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control form-control-line" value="Arya">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12">Last Name</label>
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control form-control-line" value="Stark">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12">Password</label>
+                                            <div class="col-md-12">
+                                                <input type="password" value="password"
+                                                    class="form-control form-control-line">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-12">
+                                                <button class="btn btn-success">Update Profile</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Column -->
+                    </div>
+                    <!-- Row -->
+                    <!-- ============================================================== -->
+                    <!-- End PAge Content -->
+                    <!-- ============================================================== -->
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Container fluid  -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+
+            </div>
+        </div>
+        <div class="tab-pane fade " id="Pending" role="tabpanel" aria-labelledby="profile-tab">
+            <h3>Pending Tournament</h3>
+        </div>
+
+        <div class="modal fade" id="modalEnrollForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header text-center" style="background-color:#b6a16b;">
+                        <h4 class="modal-title w-100 font-bold">Enroll</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body mx-3">
+
+                        <form action="limited-site.html" method="POST">
+                            <div class="form-group">
+                                <label for="TMname"> Select A Tournament</label>
+                                <select name="TMname" id="TMname" class="form-control"
+                                    onchange="fetch_team(this.value);">
+                                    <option value="0"> - select - </option>
+                                    <option> March Madness </option>
+                                    <option> March Sadness </option>
+                                    <option> March Badness </option>
+                                    <option> March Baggage </option>
+                                    <option> March Cabbage </option>
+                                    <option> March Gladness </option>
+                                </select>
+
+                                <div id="new_select">
+                                </div>
+
+                            </div>
+                            <div class="modal-footer d-flex justify-content-center">
+                                <button class="btn btn-primary btn-lg btn-dark" type="submit">Join</button>
+                            </div>
+                        </form>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <!--End Modal-->
+
+        <!-- create tournament modal -->
+        <!--Begin Modal-->
+        <div class="modal fade" id="createTournament" tabindex="-1" role="dialog" aria-labelledby="createTournament"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+
+                <div class="modal-content" style="width:130%;">
+
+                    <div class="modal-header light-blue darken-3 white-text">
+                        <h4 class="title col-sm-11" id="createTournament">Create Tournament</h4>
+                        <button type="button" class="close waves-effect waves-light" data-dismiss="modal"
+                            aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <!--Body-->
+                    <div class="modal-body mb-0 mx-3">
+                        <form action="limited-site.html" method="POST" enctype="multipart/form-data">
+                            <div class="md-form form-sm row">
+                                <!-- Tournament Name -->
+                                <label for="tmname" class="col-sm-4 control-label right-align">Tournament Name</label>
+                                </br>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="tmname" name="tmname"
+                                        placeholder="Enter Tournament Name" required>
+                                </div>
+                            </div>
+                            <br>
+                            <!-- Start Date -->
+                            <div class="md-form form-sm row">
+                                <label for="StartDate" class="col-sm-4 control-label right-align">Start Date</label>
+                                <div class="col-sm-8">
+                                    <div class="form-group">
+                                        <div class="input-group date" id="StartDate" data-target-input="nearest">
+                                            <input type="text" name="StartDate"
+                                                class="form-control datetimepicker-input" data-target="#StartDate" />
+                                            <div class="input-group-append" data-target="#StartDate"
+                                                data-toggle="datetimepicker">
+                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Date -->
+                            <div class="md-form form-sm row">
+                                <label for="EndDate" class="col-sm-4 control-label right-align">End Date</label>
+                                <div class="col-sm-8">
+                                    <div class="form-group">
+                                        <div class="input-group date" id="EndDate" data-target-input="nearest">
+                                            <input type="text" name="EndDate" class="form-control datetimepicker-input"
+                                                data-target="#EndDate" />
+                                            <div class="input-group-append" data-target="#EndDate"
+                                                data-toggle="datetimepicker">
+                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Game Type -->
+                            <div class="md-form form-sm row">
+                                <label for="gType" class="col-sm-4 control-label">Game Type</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="gType" name="gType">
+                                        <option value="Individual">Individual</option>
+                                        <option value="Team">Team</option>
+                                        <br />
+                                    </select>
+
+                                    <br />
+                                </div>
+                            </div>
+
+                            <!-- Description -->
+                            <div class="md-form form-sm row">
+                                <label for="description" class="col-sm-4 control-label right-align">Description</label>
+                                <div class="col-sm-8">
+                                    <textarea class="form-control" id="description" name="description" rows="12"
+                                        required></textarea>
+                                </div>
+                                <span class="offset-md-8" id="spnCharLeft"></span>
+                                <br />
+                            </div>
+
+                            <!-- Buttons-->
+
+                            <div class="text-center mt-1-half">
+                                <br />
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn btn-secondary" id="submit" name="done">Create</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Modal -->
+
+        <!--Contact Support Modal-->
+        <!--Begin Modal-->
+        <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="contactSupportModal"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header text-center" style="background-color:#b6a16b;">
+
+                        <h4 class="modal-title font-bold" style="width: -webkit-fill-available;">Contact Support</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+
+                    </div>
+
+                    <div class="modal-body mx-3">
+                        <form method="post" name="myemailform" action="thankyou.html">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" name="name " placeholder="Enter Your Name">
+                                <br />
+                                <label for="description">Issue Description</label>
+                                <input type="text" class="form-control" name="email" placeholder="Enter Your Issue">
+                            </div>
+                            <div class="modal-footer d-flex justify-content-center">
+                                <button class="btn btn-primary btn-lg btn-dark" type="reset">Reset</button>
+                                <input class="btn btn-primary btn-lg btn-dark" type="submit">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <!-- <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script> -->
+    <script src="http://underscorejs.org/underscore-min.js"></script>
+    <script src="./js/createtournament.js"></script>
+    <script src="./js/moment.min.js"></script>
+    <script src="./js/tempusdominus-bootstrap-4.min.js"></script>
+
+</body>
+
+<footer id="footer" class="footer navbar-fixed-bottom">
+    <div> &copy; Rock Lee Development @ Lindenwood Library Services: Media Library </div>
+</footer>
+
+</html>
