@@ -13,4 +13,4 @@ Lindenwood University's Multimedia Center hosts a number of game tournaments (vi
 ## Website 
 The tournament management system, as used and hosted by Lindenwood University, is not public facing. 
 
-However, some of the design and features can be observed at https://akintundejr4.github.io/Gamer-Tree/. Those seeking to get a rough (very rough) demonstration of the application can login using the credentials `guest` as both username and password. 
+However, some of the design and features can be observed at https://segunak.github.io/Gamer-Tree/. Those seeking to get a rough (very rough) demonstration of the application can login using the credentials `guest` as both username and password. 
